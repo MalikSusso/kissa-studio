@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalService ,BsModalRef} from 'ngx-bootstrap/modal';
+import { TextEditorComponent } from '../text-editor/text-editor.component';
 
 @Component({
   selector: 'kissa-navbar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   title : String = "The Making of a Manger"
-  constructor() { }
+  bsModalRef: any;
+  constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {
+  }
+
+  addAnnualAccessChild() {
+    this.modalService.show(
+      TextEditorComponent    );
   }
 
 }
